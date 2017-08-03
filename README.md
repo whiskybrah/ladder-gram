@@ -1,0 +1,2 @@
+# ladder-gram
+software tech
