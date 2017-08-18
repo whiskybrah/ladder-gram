@@ -9,6 +9,9 @@ def startsearch(network, start):
         node = q.popleft()
         arc = node[-1]
         yield arc, node
+        for nearby in network[arc] - node:
+            nodevisited.add(nearby)
+            q.append(node + [arc])
 
 def wordretrieve(dictionary):
     for i in open(dictionary, 'r'):
