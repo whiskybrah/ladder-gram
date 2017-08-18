@@ -7,7 +7,7 @@ def build(pattern, words, seen, list):
                  if re.search(pattern, word) and word not in seen.keys() and
                     word not in list]
 
-def find(word, words, seen, target, path):
+'''def find(word, words, seen, target, path):
   list = []
   for i in range(len(word)):
     list += build(word[:i] + "." + word[i + 1:], words, seen, list)
@@ -24,9 +24,11 @@ def find(word, words, seen, target, path):
     path.append(item)
     if find(item, words, seen, target, path):
       return True
-    path.pop()
+    path.pop()'''
 
-# def wordretrieve(dictionary)
+def wordretrieve(dictionary):
+    for i in open(dictionary, 'r'):
+        # tba?
 
 def createGraph(wordList):
     network = defaultdict(set)
@@ -44,21 +46,9 @@ def createGraph(wordList):
 
 dictionary = createGraph(wordretrieve('dictionary.txt'))
 
-while True:
-  start = input("Enter start word:")
-  words = []
-  for line in lines:
-    word = line.rstrip()
-    if len(word) == len(start):
-      words.append(word)
-  target = input("Enter target word:")
-  break
-
-count = 0
-path = [start]
-seen = {start : True}
-if find(start, words, seen, target, path):
-  path.append(target)
-  print(len(path) - 1, path)
-else:
-  print("No path found")
+if __name__ == '__main__':
+    startword = input("Enter start word:")
+    targetword = input("Enter target word:")
+    for x, a in startsearch(wordnetwork, startword):
+        if x == targetword:
+            print( '  '.join(a))
