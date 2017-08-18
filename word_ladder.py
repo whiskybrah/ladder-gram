@@ -33,8 +33,13 @@ def createGraph(wordList):
     containers = defaultdict(list)
     for word in wordList:
         for x in range(len(word)):
-            container = '{}~{}'.format(word[x + 1:])
-
+            container = '{}~{}'.format(word[:x], word[x + 1:])
+            containers[container].append(word)
+    for container, nearby in containers.items():
+        for firstword, secondword in product(nearby, repeat=2):
+            if firstword != secondword:
+                network[secondword].add(firstword)
+                network[firstword].add(secondword)
     return network
 
 dictionary = createGraph(wordretrieve('dictionary.txt'))
