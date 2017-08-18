@@ -28,7 +28,7 @@ def build(pattern, words, seen, list):
 
 def wordretrieve(dictionary):
     for i in open(dictionary, 'r'):
-        # tba?
+        yield i[:-1]
 
 def createGraph(wordList):
     network = defaultdict(set)
@@ -49,6 +49,6 @@ dictionary = createGraph(wordretrieve('dictionary.txt'))
 if __name__ == '__main__':
     startword = input("Enter start word:")
     targetword = input("Enter target word:")
-    for x, a in startsearch(wordnetwork, startword):
-        if x == targetword:
-            print( '  '.join(a))
+    for arc, path in startsearch(wordnetwork, startword):
+        if arc == targetword:
+            print( ' -> '.join(path))
