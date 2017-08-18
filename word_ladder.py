@@ -4,14 +4,15 @@ import unittest
 from collections import deque
 
 def startsearch(network, start):
+    nodevisited = set()
     q = deque([[start]])
     while q:
         node = q.popleft()
         arc = node[-1]
         yield arc, node
-        for nearby in network[arc] - node:
+        for nearby in network[arc] - nodevisited:
             nodevisited.add(nearby)
-            q.append(node + [arc])
+            q.append(node + [nearby])
 
 def wordretrieve(dictionary):
     for i in open(dictionary, 'r'):
