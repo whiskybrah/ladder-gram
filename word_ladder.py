@@ -26,9 +26,19 @@ def find(word, words, seen, target, path):
       return True
     path.pop()
 
-fname = input("Enter dictionary name: ")
-file = open(fname)
-lines = file.readlines()
+# def wordretrieve(dictionary)
+
+def createGraph(wordList):
+    network = defaultdict(set)
+    containers = defaultdict(list)
+    for word in wordList:
+        for x in range(len(word)):
+            container = '{}~{}'.format(word[x + 1:])
+
+    return network
+
+dictionary = createGraph(wordretrieve('dictionary.txt'))
+
 while True:
   start = input("Enter start word:")
   words = []
