@@ -47,7 +47,7 @@ dictionary = createGraph(wordretrieve('dictionary.txt'))
 if __name__ == '__main__':
     startword = input("Enter start word:")
     targetword = input("Enter target word:")
-    for arc, path in startsearch(wordnetwork, startword):
+    for arc, path in startsearch(dictionary, startword):
         if arc == targetword:
             print( ' -> '.join(path))
 
