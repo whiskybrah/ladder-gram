@@ -32,6 +32,7 @@ def createGraph(wordList):
                 network[firstword].add(secondword)
     return network
 
+# dictfile = input("Enter dictionary:")
 dictionary = createGraph(wordretrieve('dictionary.txt'))
 
 if __name__ == '__main__':
