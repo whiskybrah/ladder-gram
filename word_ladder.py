@@ -1,13 +1,6 @@
 from collections import defaultdict
 from itertools import product
-
-'''def same(item, target):
-  return len([c for (c, t) in zip(item, target) if c == t])
-
-def build(pattern, words, seen, list):
-  return [word for word in words
-                 if re.search(pattern, word) and word not in seen.keys() and
-                    word not in list]'''
+import unittest
 
 def wordretrieve(dictionary):
     for i in open(dictionary, 'r'):
@@ -35,3 +28,11 @@ if __name__ == '__main__':
     for arc, path in startsearch(wordnetwork, startword):
         if arc == targetword:
             print( ' -> '.join(path))
+
+
+class myTest(unittest.TestCase):
+  def test_graph(self):
+      print("setup")
+
+
+unittest.main()
