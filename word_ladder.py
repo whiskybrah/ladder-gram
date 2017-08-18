@@ -1,6 +1,14 @@
 from collections import defaultdict
 from itertools import product
 import unittest
+from collections import deque
+
+def startsearch(network, start):
+    q = deque([[start]])
+    while q:
+        node = q.popleft()
+        arc = node[-1]
+        yield arc, node
 
 def wordretrieve(dictionary):
     for i in open(dictionary, 'r'):
